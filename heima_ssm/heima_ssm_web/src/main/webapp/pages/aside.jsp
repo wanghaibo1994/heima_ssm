@@ -11,7 +11,7 @@
 					class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>xxx</p>
+				<p>黄老板</p>
 				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
 			</div>
 		</div>
@@ -34,19 +34,19 @@
 
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/user/findAll.do"> <i
-							class="fa fa-circle-o"></i> 用户管理
+							class="fa fa-users"></i> 用户管理
 					</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/role/findAll.do"> <i
-							class="fa fa-circle-o"></i> 角色管理
+							class="fa fa-male"></i> 角色管理
 					</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/permission/findAll.do">
-							<i class="fa fa-circle-o"></i> 资源权限管理
+							<i class="fa fa-child"></i> 资源权限管理
 					</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
-							class="fa fa-circle-o"></i> 访问日志
+							class="fa fa-book"></i> 访问日志
 					</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
@@ -62,7 +62,7 @@
 					</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-							class="fa fa-circle-o"></i> 订单管理
+							class="fa fa-clone"></i> 订单管理
 					</a></li>
 
 				</ul></li>

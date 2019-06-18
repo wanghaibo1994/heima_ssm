@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<a href="${pageContext.request.contextPath}/pages/product-list1.jsp">查询所有</a>
+<jsp:forward page="./pages/main.jsp"></jsp:forward>
 
 </body>
 </html>

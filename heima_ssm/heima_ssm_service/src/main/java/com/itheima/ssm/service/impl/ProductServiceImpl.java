@@ -17,7 +17,8 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<Product> findAll() throws Exception {
-
-        return iProductDao.findAll();
+        List<Product> all = iProductDao.findAll();
+        System.out.println(all);
+        return all;
     }
 }
