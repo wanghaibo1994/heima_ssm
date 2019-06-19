@@ -21,4 +21,9 @@ public class ProductServiceImpl implements IProductService {
         System.out.println(all);
         return all;
     }
+
+    @Override
+    public void save(Product product) {
+        iProductDao.save(product);
+    }
 }

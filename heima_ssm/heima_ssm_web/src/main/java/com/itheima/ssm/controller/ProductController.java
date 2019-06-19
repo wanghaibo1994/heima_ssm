@@ -24,4 +24,10 @@ public class ProductController {
         mav.setViewName("product-list1");
         return mav;
     }
+
+    @RequestMapping("/save.do")
+    public String save(Product product) throws Exception {
+        iProductService.save(product);
+        return "redirect:findAll.do";
+    }
 }
