@@ -1,5 +1,6 @@
 package com.itheima.ssm.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.itheima.ssm.domain.Product;
 import com.itheima.ssm.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,26 @@ public class ProductController {
     @Autowired
     private IProductService iProductService;
 
-    @RequestMapping("findAll.do")
+    /*@RequestMapping("findAll.do")
     public ModelAndView findAll() throws Exception {
 
         ModelAndView mav = new ModelAndView();
         List<Product> all = iProductService.findAll();
+        //PageInfo pageInfo = new PageInfo(ordersList);
+        //        mv.addObject("pageInfo",pageInfo);
         mav.addObject("productList",all);
         mav.setViewName("product-list1");
+        return mav;
+    }*/
+
+    @RequestMapping("findAll.do")
+    public ModelAndView findAll(int page, int pageSize) throws Exception {
+
+        ModelAndView mav = new ModelAndView();
+        List<Product> all = iProductService.findAll(page, pageSize);
+        PageInfo pageInfo = new PageInfo(all);
+        mav.addObject("pageInfo",pageInfo);
+        mav.setViewName("product-list");
         return mav;
     }
 

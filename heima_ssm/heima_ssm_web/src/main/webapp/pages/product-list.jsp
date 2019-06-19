@@ -222,13 +222,48 @@
 							</div>
 							<!--工具栏/-->
 
-							<!--数据列表-->
-							<table id="dataList"
-								class="table table-bordered table-striped table-hover dataTable">
-								<thead>
+							<!-- 数据表格 -->
+							<div class="table-box">
+
+								<!--工具栏-->
+								<div class="pull-left">
+									<div class="form-group form-inline">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default" title="新建"
+													onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
+												<i class="fa fa-file-o"></i> 新建
+											</button>
+											<button type="button" class="btn btn-default" title="删除">
+												<i class="fa fa-trash-o"></i> 删除
+											</button>
+											<button type="button" class="btn btn-default" title="开启">
+												<i class="fa fa-check"></i> 开启
+											</button>
+											<button type="button" class="btn btn-default" title="屏蔽">
+												<i class="fa fa-ban"></i> 屏蔽
+											</button>
+											<button type="button" class="btn btn-default" title="刷新">
+												<i class="fa fa-refresh"></i> 刷新
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="box-tools pull-right">
+									<div class="has-feedback">
+										<input type="text" class="form-control input-sm"
+											   placeholder="搜索"> <span
+											class="glyphicon glyphicon-search form-control-feedback"></span>
+									</div>
+								</div>
+								<!--工具栏/-->
+
+								<!--数据列表-->
+								<table id="dataList"
+									   class="table table-bordered table-striped table-hover dataTable">
+									<thead>
 									<tr>
 										<th class="" style="padding-right: 0px;"><input
-											id="selall" type="checkbox" class="icheckbox_square-blue">
+												id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
 										<th class="sorting_asc">ID</th>
 										<th class="sorting_desc">编号</th>
@@ -240,11 +275,11 @@
 										<th class="text-center sorting">状态</th>
 										<th class="text-center">操作</th>
 									</tr>
-								</thead>
-								<tbody>
+									</thead>
+									<tbody>
 
 
-									<c:forEach items="${productList}" var="product">
+									<c:forEach items="${pageInfo.list}" var="product">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
@@ -263,21 +298,55 @@
 											</td>
 										</tr>
 									</c:forEach>
-								</tbody>
-								<!--
-                            <tfoot>
-                            <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                            </tr>
-                            </tfoot>-->
-							</table>
-							<!--数据列表/-->
+									</tbody>
+									<!--
+                                <tfoot>
+                                <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                                </tr>
+                                </tfoot>-->
+								</table>
+								<!--数据列表/-->
 
 
+
+							</div>
+							<!-- 数据表格 /-->
+
+							<!--工具栏-->
+							<div class="pull-left">
+								<div class="form-group form-inline">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default" title="新建">
+											<i class="fa fa-file-o"></i> 新建
+										</button>
+										<button type="button" class="btn btn-default" title="删除">
+											<i class="fa fa-trash-o"></i> 删除
+										</button>
+										<button type="button" class="btn btn-default" title="开启">
+											<i class="fa fa-check"></i> 开启
+										</button>
+										<button type="button" class="btn btn-default" title="屏蔽">
+											<i class="fa fa-ban"></i> 屏蔽
+										</button>
+										<button type="button" class="btn btn-default" title="刷新">
+											<i class="fa fa-refresh"></i> 刷新
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="box-tools pull-right">
+								<div class="has-feedback">
+									<input type="text" class="form-control input-sm"
+										placeholder="搜索"> <span
+										class="glyphicon glyphicon-search form-control-feedback"></span>
+								</div>
+							</div>
+							<!--工具栏/-->
 
 						</div>
 						<!-- 数据表格 /-->
@@ -286,36 +355,47 @@
 					</div>
 					<!-- /.box-body -->
 
+
 					<!-- .box-footer-->
-					<div class="box-footer">
-						<div class="pull-left">
-							<div class="form-group form-inline">
-								总共2 页，共14 条数据。 每页 <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+                <div class="box-footer">
+                    <div class="pull-left">
+                        <div class="form-group form-inline">
+                            总共${pageInfo.pages}页，共${pageInfo.total}条数据。 每页
+							<c:if test="${pageInfo.pageSize==3}">
+								<select class="form-control" id="changePageSize" onchange="changePageSize()">
+										<option  selected="selected" >3</option>
+										<option>4</option>
 								</select> 条
-							</div>
-						</div>
+							</c:if>
+							<c:if test="${pageInfo.pageSize==4}">
+								<select class="form-control" id="changePageSize" onchange="changePageSize()">
+									<option >3</option>
+									<option  selected="selected" >4</option>
+								</select> 条
+							</c:if>
+                        </div>
+                    </div>
 
-						<div class="box-tools pull-right">
-							<ul class="pagination">
-								<li><a href="#" aria-label="Previous">首页</a></li>
-								<li><a href="#">上一页</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">下一页</a></li>
-								<li><a href="#" aria-label="Next">尾页</a></li>
-							</ul>
-						</div>
+                    <div class="box-tools pull-right">
+                        <ul class="pagination">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/product/findAll.do?page=1&pageSize=${pageInfo.pageSize}" aria-label="Previous">首页</a>
+                            </li>
+                            <li><a href="${pageContext.request.contextPath}/product/findAll.do?page=${pageInfo.pageNum-1}&pageSize=${pageInfo.pageSize}">上一页</a></li>
 
-					</div>
-					<!-- /.box-footer-->
+							<c:forEach begin="1" end="${pageInfo.pages}" var="i">
+							<li><a href="${pageContext.request.contextPath}/product/findAll.do?page=${i}&pageSize=${pageInfo.pageSize}">${i}</a></li>
+							</c:forEach>
+
+                            <li><a href="${pageContext.request.contextPath}/product/findAll.do?page=${pageInfo.pageNum+1}&pageSize=${pageInfo.pageSize}">下一页</a></li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/product/findAll.do?page=${pageInfo.pages}&pageSize=${pageInfo.pageSize}" aria-label="Next">尾页</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /.box-footer-->
 
 
 
@@ -430,6 +510,16 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+        function changePageSize() {
+            //获取下拉框的值
+            var pageSize = $("#changePageSize").val();
+
+            //向服务器发送请求，改变没页显示条数
+            location.href = "${pageContext.request.contextPath}/product/findAll.do?page=1&pageSize="
+                + pageSize;
+        }
+
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

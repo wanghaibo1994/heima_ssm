@@ -3,12 +3,13 @@ package com.itheima.ssm.domain;
 import com.itheima.ssm.utils.DateUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 产品信息
  */
-public class Product {
+public class Product implements Serializable {
     private String id; // 主键
     private String productNum; // 编号 唯一
     private String productName; // 名称
