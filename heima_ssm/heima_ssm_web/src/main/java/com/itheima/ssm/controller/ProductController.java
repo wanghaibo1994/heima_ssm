@@ -42,6 +42,6 @@ public class ProductController {
     @RequestMapping("/save.do")
     public String save(Product product) throws Exception {
         iProductService.save(product);
-        return "redirect:findAll.do";
+        return "redirect:findAll.do?page=1&pageSize=4";
     }
 }
