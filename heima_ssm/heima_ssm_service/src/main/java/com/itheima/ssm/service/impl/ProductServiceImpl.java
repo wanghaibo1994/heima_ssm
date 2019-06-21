@@ -14,17 +14,22 @@ import java.util.List;
 @Transactional
 public class ProductServiceImpl implements IProductService {
     @Autowired
-    private IProductDao ProductDao;
+    private IProductDao productDao;
 
     @Override
     public List<Product> findAll(int pageNum, int pageSize) throws Exception {
         PageHelper.startPage(pageNum, pageSize);
-        List<Product> all = ProductDao.findAll();
+        List<Product> all = productDao.findAll();
         return all;
     }
 
     @Override
-    public void save(Product product) {
-        ProductDao.save(product);
+    public void save(Product product)throws Exception  {
+        productDao.save(product);
+    }
+
+    @Override
+    public void open(String id) throws Exception {
+        productDao.open(id);
     }
 }

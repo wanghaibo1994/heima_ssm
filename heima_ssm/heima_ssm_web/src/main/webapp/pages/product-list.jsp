@@ -201,7 +201,9 @@
 										<button type="button" class="btn btn-default" title="删除">
 											<i class="fa fa-trash-o"></i> 删除
 										</button>
-										<button type="button" class="btn btn-default" title="开启">
+										<button type="button" class="btn btn-default" title="开启"
+												>
+										<%--onclick="location.href='${pageContext.request.contextPath}/pages/product-open.jsp'">--%>
 											<i class="fa fa-check"></i> 开启
 										</button>
 										<button type="button" class="btn btn-default" title="屏蔽">
@@ -225,37 +227,7 @@
 							<!-- 数据表格 -->
 							<div class="table-box">
 
-								<!--工具栏-->
-								<div class="pull-left">
-									<div class="form-group form-inline">
-										<div class="btn-group">
-											<button type="button" class="btn btn-default" title="新建"
-													onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
-												<i class="fa fa-file-o"></i> 新建
-											</button>
-											<button type="button" class="btn btn-default" title="删除">
-												<i class="fa fa-trash-o"></i> 删除
-											</button>
-											<button type="button" class="btn btn-default" title="开启">
-												<i class="fa fa-check"></i> 开启
-											</button>
-											<button type="button" class="btn btn-default" title="屏蔽">
-												<i class="fa fa-ban"></i> 屏蔽
-											</button>
-											<button type="button" class="btn btn-default" title="刷新">
-												<i class="fa fa-refresh"></i> 刷新
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="box-tools pull-right">
-									<div class="has-feedback">
-										<input type="text" class="form-control input-sm"
-											   placeholder="搜索"> <span
-											class="glyphicon glyphicon-search form-control-feedback"></span>
-									</div>
-								</div>
-								<!--工具栏/-->
+
 
 								<!--数据列表-->
 								<table id="dataList"
@@ -317,36 +289,7 @@
 							</div>
 							<!-- 数据表格 /-->
 
-							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建">
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
-							<!--工具栏/-->
+
 
 						</div>
 						<!-- 数据表格 /-->
@@ -518,6 +461,10 @@
             location.href = "${pageContext.request.contextPath}/product/findAll.do?page=1&pageSize="
                 + pageSize;
         }
+
+        /*function openFunction() {
+			$("tr[name='ids']").
+        }*/
 
 
 		$(document).ready(function() {

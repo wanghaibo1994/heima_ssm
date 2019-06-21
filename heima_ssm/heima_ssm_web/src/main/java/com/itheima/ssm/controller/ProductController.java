@@ -44,4 +44,14 @@ public class ProductController {
         iProductService.save(product);
         return "redirect:findAll.do?page=1&pageSize=4";
     }
+
+
+    @RequestMapping("/product-open.do")
+    public String open(String id) throws Exception {
+        if(!(id.length()>10)){
+            return "redirect:findAll.do?page=1&pageSize=4";
+        }
+        iProductService.open(id);
+        return "redirect:findAll.do?page=1&pageSize=4";
+    }
 }

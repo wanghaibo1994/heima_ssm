@@ -1,6 +1,7 @@
 package com.itheima.ssm.dao;
 
 import com.itheima.ssm.domain.Orders;
+import com.itheima.ssm.domain.Product;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public interface IOrdersDao {
             @Result(property = "peopleCount",column = "peopleCount"),
             @Result(property = "payType",column = "payType"),
             @Result(property = "orderDesc",column = "orderDesc"),
-            @Result(property = "product",column = "productId" ,one = @One(select = "com.itheima.ssm.dao.IProductDao.findById"))
+            @Result(property = "product",column = "productId", javaType = com.itheima.ssm.domain.Product.class, one = @One(select = "com.itheima.ssm.dao.IProductDao.findById"))
     })
     public List<Orders> findAll() throws Exception;
 
@@ -40,9 +41,9 @@ public interface IOrdersDao {
             @Result(property = "peopleCount",column = "peopleCount"),
             @Result(property = "payType",column = "payType"),
             @Result(property = "orderDesc",column = "orderDesc"),
-            @Result(property = "product",column = "productId", one = @One(select = "com.itheima.ssm.dao.IProductDao.findById")),
-            @Result(property = "member",column = "memberid",one = @One(select = "com.itheima.ssm.dao.IMemberDao.findById")),
-            @Result(property = "travellers",column = "id" , many = @Many(select = "com.itheima.ssm.dao.ITravellerDao.findById"))
+            @Result(property = "product",column = "productId", javaType = com.itheima.ssm.domain.Product.class, one = @One(select = "com.itheima.ssm.dao.IProductDao.findById")),
+            @Result(property = "member",column = "memberid", javaType = com.itheima.ssm.domain.Member.class,one = @One(select = "com.itheima.ssm.dao.IMemberDao.findById")),
+            @Result(property = "travellers",column = "id" , javaType = java.util.List.class, many = @Many(select = "com.itheima.ssm.dao.ITravellerDao.findById"))
 
 
     })
