@@ -15,7 +15,7 @@ public interface IUserDao {
             @Result(property = "password", column = "password"),
             @Result(property = "phoneNum", column = "phoneNum"),
             @Result(property = "status", column = "status"),
-            @Result(property = "roles", column = "id",javaType = java.util.List.class, many = @Many(select = "com.itheima.ssm.dao.IroleDao.findById"))
+            @Result(property = "roles", column = "id",javaType = java.util.List.class, many = @Many(select = "com.itheima.ssm.dao.IRoleDao.findById"))
     })
     UserInfo findByUsername(String username) throws Exception;
 
@@ -33,8 +33,18 @@ public interface IUserDao {
             @Result(property = "password", column = "password"),
             @Result(property = "phoneNum", column = "phoneNum"),
             @Result(property = "status", column = "status"),
-            @Result(property = "roles", column = "id",javaType = java.util.List.class, many = @Many(select = "com.itheima.ssm.dao.IroleDao.findById"))
+            @Result(property = "roles", column = "id",javaType = java.util.List.class, many = @Many(select = "com.itheima.ssm.dao.IRoleDao.findById"))
     })
-    UserInfo findById(String id);
+    UserInfo findById(String id) throws Exception;
 
+    @Update("update users set username = #{username} , email = #{email} , phoneNum = #{phoneNum}, status = #{status} where id = #{id}")
+    void updateUser(UserInfo userInfo) throws Exception;
+    @Update("update users set password = #{password}  where id = #{id}")
+    void updateUserPassword(UserInfo userInfo) throws Exception;
+
+
+    @Delete("delete from users_role where userId in #{id}")
+    void deleteByUserIdFllUser_role(String id) throws Exception;
+    @Delete("delete from users where id in #{id}")
+    void deleteUserById(String id)  throws Exception;
 }

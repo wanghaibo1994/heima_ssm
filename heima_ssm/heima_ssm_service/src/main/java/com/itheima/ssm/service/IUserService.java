@@ -1,5 +1,6 @@
 package com.itheima.ssm.service;
 
+import com.itheima.ssm.domain.Role;
 import com.itheima.ssm.domain.UserInfo;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,4 +16,15 @@ public interface IUserService extends UserDetailsService {
 
     UserInfo findById(String id)throws Exception;
 
+    List<Role> findUserByIdAndAllRole(String userId) throws Exception;
+
+    void addRoleToUser(String userId, String[] roleIds) throws Exception;
+
+    void updateUser(UserInfo userInfo) throws Exception;
+
+    void deleteUserById(String id) throws Exception;
+
+    List<Role> deleteUserByIdAndAllRole(String userId) throws Exception;
+
+    void deleteRoleToUser(String userId, String[] roleIds) throws Exception;
 }
