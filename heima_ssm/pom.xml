@@ -27,12 +27,14 @@
         <spring.security.version>5.0.1.RELEASE</spring.security.version>
     </properties>
 
-    <dependencies>        <!-- spring -->
+    <dependencies>
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.6.8</version>
         </dependency>
+        <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>

@@ -30,7 +30,6 @@ public class ProductController {
 
     @RequestMapping("findAll.do")
     public ModelAndView findAll(int page, int pageSize) throws Exception {
-
         ModelAndView mav = new ModelAndView();
         List<Product> all = iProductService.findAll(page, pageSize);
         PageInfo pageInfo = new PageInfo(all);
